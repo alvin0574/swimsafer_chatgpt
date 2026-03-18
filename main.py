@@ -42,3 +42,4 @@ Tips
     )
 
     return {"result": r.output_text}
+client = OpenAI(api_key="sk-xxxxx")
