@@ -3,7 +3,7 @@ from fastapi import FastAPI, Request
 from openai import OpenAI
 
 app = FastAPI()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI()
 
 def download(url):
     r = requests.get(url)
