@@ -19,7 +19,12 @@ def b64(p):
 @app.post("/analyze")
 async def analyze(req: Request):
     d = await req.json()
-    download(d["video"])
+ video_url = d.get("video") or d.get("video_upload") or d.get("Video Upload")
+
+if not video_url:
+    return {"error": f"Missing video field. Received keys: {list(d.keys())}"}
+
+download(video_url)
 
     imgs = [{"type":"input_text","text":f"""
 SwimSafer assessment.
